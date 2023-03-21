@@ -39,6 +39,8 @@ class Interpreter: public Visitor,
 
  private:
   struct Variable {
+    Variable() = default;
+    Variable(Type type, bool is_init, int value) : type{ std::move(type) }, is_init{ is_init }, value{ value } {}
     Type type;
     bool is_init = false;
     int value;
